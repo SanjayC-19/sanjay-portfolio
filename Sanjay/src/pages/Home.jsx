@@ -35,15 +35,11 @@ const Home = ({ setActiveSection }) => {
           className="mb-8"
         >
           <div className="w-32 h-32 mx-auto mb-6 relative">
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-              className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 p-1"
-            >
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 p-1">
               <div className="w-full h-full rounded-full bg-gray-900 flex items-center justify-center text-4xl">
                 👨‍💻
               </div>
-            </motion.div>
+            </div>
           </div>
         </motion.div>
 

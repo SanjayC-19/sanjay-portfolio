@@ -21,31 +21,26 @@ function App() {
   };
 
   return (
-    <div className="bg-black w-full min-h-screen overflow-x-hidden">
+    <div className="bg-black w-full min-h-screen overflow-x-hidden scroll-smooth flex flex-col">
       <Navbar activeSection={activeSection} setActiveSection={scrollToSection} />
-      
-      {/* Home Section */}
-      <section id="home" className="w-full">
+      {/* Each section: min-h-screen, pt-16, snap-start for scroll snap */}
+      <section id="home" className="w-full min-h-screen pt-16">
         <Home setActiveSection={scrollToSection} />
       </section>
 
-      {/* About Section */}
-      <section id="about" className="w-full">
+      <section id="about" className="w-full min-h-screen pt-16">
         <About />
       </section>
 
-      {/* Skills Section */}
-      <section id="skills" className="w-full">
+      <section id="skills" className="w-full min-h-screen pt-16">
         <Skills />
       </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="w-full">
+      <section id="projects" className="w-full min-h-screen pt-16">
         <Projects />
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="w-full">
+      <section id="contact" className="w-full min-h-screen pt-16">
         <Contact />
       </section>
 

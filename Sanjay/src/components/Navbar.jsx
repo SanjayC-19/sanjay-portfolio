@@ -13,23 +13,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
     { name: 'Contact', id: 'contact' },
   ];
 
-  // Update active section based on scroll position
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = navItems.map(item => document.getElementById(item.id));
-      const scrollPosition = window.scrollY + 100;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        if (sections[i] && sections[i].offsetTop <= scrollPosition) {
-          setActiveSection(navItems[i].id);
-          break;
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [setActiveSection]);
+  // Removed scroll event logic to prevent scroll interference
 
   const handleNavClick = (id) => {
     setActiveSection(id);

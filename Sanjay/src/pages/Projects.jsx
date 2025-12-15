@@ -17,8 +17,8 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: 'Pounded Application',
-      description: 'An innovative financial management application developed during internship. Features transaction tracking, budget management, and detailed analytics for personal finance management.',
+      title: 'Poultry Application',
+      description: 'An innovative poultry management application developed during internship. Features poultry tracking, budget management, and detailed analytics for poultry management.',
       tags: ['React', 'Firebase', 'JavaScript', 'Tailwind CSS'],
       image: '💰',
       gradient: 'from-purple-500/10 to-pink-500/10',

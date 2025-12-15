@@ -1,20 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
+import sanjayPhoto from '../assets/sanjay_s_photo-removebg-preview.png';
 import { motion } from 'framer-motion';
 import { Download, Award, Calendar } from 'lucide-react';
 
 const About = () => {
-  const [imageUrl, setImageUrl] = useState(null);
 
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImageUrl(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -60,43 +50,13 @@ const About = () => {
             variants={itemVariants}
             className="flex flex-col items-center"
           >
-            <label className="cursor-pointer">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="relative w-64 h-64 rounded-2xl overflow-hidden border-2 border-cyan-500/50 hover:border-cyan-500 transition-all duration-300 group"
-              >
-                {imageUrl ? (
-                  <img
-                    src={imageUrl}
-                    alt="Profile"
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex flex-col items-center justify-center group-hover:from-gray-700 group-hover:to-gray-800 transition-all duration-300">
-                    <span className="text-4xl mb-2">📸</span>
-                    <span className="text-cyan-400 text-center px-4">
-                      Click to Upload Your Photo
-                    </span>
-                  </div>
-                )}
-              </motion.div>
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleImageUpload}
-                className="hidden"
+            <div className="relative w-64 h-64 rounded-2xl overflow-hidden border-2 border-cyan-500/50 transition-all duration-300">
+              <img
+                src={sanjayPhoto}
+                alt="Sanjay"
+                className="w-full h-full object-cover"
               />
-            </label>
-            {imageUrl && (
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setImageUrl(null)}
-                className="mt-4 px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg text-sm transition-all duration-300"
-              >
-                Remove Photo
-              </motion.button>
-            )}
+            </div>
           </motion.div>
 
           {/* Text Section - Right */}
@@ -173,7 +133,7 @@ const About = () => {
             <h4 className="text-2xl font-bold text-white mb-2">
               Full Stack Developer Intern
             </h4>
-            <p className="text-cyan-400 mb-4">QBI Solution Pvt Ltd</p>
+            <p className="text-cyan-400 mb-4">CubeAI Solution Pvt Ltd</p>
             <p className="text-gray-300 mb-4">
               3-Month Internship | Full Stack Development
             </p>
@@ -182,7 +142,7 @@ const About = () => {
                 <span className="text-cyan-400 font-semibold">Projects Completed:</span>
               </p>
               <ul className="list-disc list-inside space-y-1 text-gray-400 ml-2">
-                <li>Pounded Application - Full Stack Web Application</li>
+                <li>Poultry Project - Mobile Application</li>
                 <li>Loan Based Application - Financial Management Tool</li>
               </ul>
             </div>
