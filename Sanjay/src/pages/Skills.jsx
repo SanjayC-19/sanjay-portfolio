@@ -1,125 +1,86 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-
 const Skills = () => {
-  const skillCategories = [
-    {
-      title: 'Frontend',
-      icon: '🎨',
-      skills: ['React', 'React Native', 'HTML', 'CSS', 'JavaScript', 'Bootstrap', 'Tailwind CSS'],
-      color: 'from-cyan-500/10 to-blue-500/10',
-      borderColor: 'border-cyan-500/30',
-    },
-    {
-      title: 'Backend',
-      icon: '⚙️',
-      skills: ['Firebase', 'Node.js', 'Express.js', 'Flask', 'SQL'],
-      color: 'from-purple-500/10 to-pink-500/10',
-      borderColor: 'border-purple-500/30',
-    },
-    {
-      title: 'AI & ML',
-      icon: '🤖',
-      skills: ['Machine Learning', 'Deep Learning', 'Computer Vision', 'NLP', 'Python', 'Java'],
-      color: 'from-orange-500/10 to-red-500/10',
-      borderColor: 'border-orange-500/30',
-    },
-    {
-      title: 'Tools & Technologies',
-      icon: '🛠️',
-      skills: ['Git', 'GitHub', 'Power BI', 'Visual Studio'],
-      color: 'from-green-500/10 to-emerald-500/10',
-      borderColor: 'border-green-500/30',
-    },
-  ];
+  const technicalSkills = [
+    { category: 'Programming Languages', skills: ['C', 'Java', 'Python'] },
+    { category: 'Frontend', skills: ['HTML', 'CSS', 'React.js', 'React Native'] },
+    { category: 'Backend', skills: ['Node.js'] },
+    { category: 'Database', skills: ['Firebase', 'MySQL'] },
+    { category: 'Tools', skills: ['VS Code', 'Expo-Go', 'Git', 'Github', 'Power BI'] }
+  ]
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  };
+  const softSkills = ['Learnability', 'Communication', 'Leadership', 'Teamwork']
 
   return (
-    <section className="w-full min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black px-4 py-20 relative">
-      <div className="max-w-6xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold mb-16 text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"
-        >
-          Technical Skills
-        </motion.h2>
-
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
-        >
-          {skillCategories.map((category, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{ y: -15, scale: 1.02 }}
-              className={`bg-gradient-to-br ${category.color} p-8 rounded-xl border ${category.borderColor} hover:border-opacity-100 transition-all duration-300 backdrop-blur-sm`}
-            >
-              <div className="flex items-center mb-6">
-                <span className="text-4xl mr-4">{category.icon}</span>
-                <h3 className="text-2xl font-bold text-white">
-                  {category.title}
-                </h3>
+    <section id="skills" className="py-20">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16 animate-fade-up">
+          <h2 className="text-4xl font-bold mb-4">
+            Technical <span className="gradient-text">Skills</span>
+          </h2>
+          <p className="text-gray-400 text-xl">Technologies I work with</p>
+        </div>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          <div className="space-y-6 animate-slide-left">
+            {technicalSkills.map((skillGroup, index) => (
+              <div key={index} className="bg-gray-800/50 p-6 rounded-xl hover-lift">
+                <h3 className="text-xl font-semibold mb-4 text-blue-400">{skillGroup.category}</h3>
+                <div className="flex flex-wrap gap-3">
+                  {skillGroup.skills.map((skill, idx) => (
+                    <span
+                      key={idx}
+                      className="px-4 py-2 bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-full text-gray-300 border border-blue-700/30 hover:border-blue-500 transition-all duration-300 hover:scale-105"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
-
-              <div className="flex flex-wrap gap-3">
-                {category.skills.map((skill, skillIndex) => (
-                  <motion.span
-                    key={skillIndex}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-4 py-2 bg-gradient-to-r from-gray-800 to-gray-900 border border-gray-700 hover:border-cyan-500/50 rounded-full text-gray-300 hover:text-cyan-400 transition-all duration-300 cursor-pointer font-medium text-sm"
-                  >
-                    {skill}
-                  </motion.span>
+            ))}
+          </div>
+          
+          <div className="animate-slide-right">
+            <div className="bg-gray-800/50 p-8 rounded-xl h-full hover-lift">
+              <h3 className="text-2xl font-semibold mb-6 text-purple-400">Soft Skills</h3>
+              <div className="space-y-6">
+                {softSkills.map((skill, index) => (
+                  <div key={index} className="relative">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-gray-300">{skill}</span>
+                      <span className="text-blue-400">90%</span>
+                    </div>
+                    <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-gradient"
+                        style={{ width: '90%' }}
+                      ></div>
+                    </div>
+                  </div>
                 ))}
               </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Animated Background Elements */}
-        <motion.div
-          animate={{
-            rotate: 360,
-          }}
-          transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-          className="absolute top-40 right-20 w-72 h-72 bg-cyan-500/5 rounded-full blur-3xl -z-10"
-        />
-        <motion.div
-          animate={{
-            rotate: -360,
-          }}
-          transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
-          className="absolute bottom-40 left-20 w-72 h-72 bg-purple-500/5 rounded-full blur-3xl -z-10"
-        />
+              
+              <div className="mt-10 pt-8 border-t border-gray-700">
+                <h3 className="text-2xl font-semibold mb-6 text-green-400">Leadership</h3>
+                <ul className="space-y-4">
+                  <li className="flex items-center space-x-3 text-gray-300">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                    <span>Executive Member of Mobile Application Development</span>
+                  </li>
+                  <li className="flex items-center space-x-3 text-gray-300">
+                    <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
+                    <span>Placement Coordinator for year 2024 - 2025</span>
+                  </li>
+                  <li className="flex items-center space-x-3 text-gray-300">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span>MS - Volunteer</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Skills;
+export default Skills

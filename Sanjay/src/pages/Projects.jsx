@@ -1,173 +1,95 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
-
 const Projects = () => {
   const projects = [
     {
-      id: 1,
-      title: 'E-Commerce Application',
-      description: 'A comprehensive e-commerce platform with product catalog, shopping cart, user authentication, and payment integration. Built with modern web technologies and best practices.',
-      tags: ['React', 'Node.js', 'MongoDB', 'Express.js', 'Stripe'],
-      image: '🛍️',
-      gradient: 'from-cyan-500/10 to-blue-500/10',
-      borderColor: 'border-cyan-500/30',
-      link: '#',
-      github: '#',
+      title: "E-commerce Application for Optics Store",
+      role: "Frontend Developer",
+      description: "Developed a full-stack e-commerce platform where users can browse, search, and order products. The app includes user/admin login systems and many necessary features.",
+      tech: ["HTML", "CSS", "JavaScript", "React.js", "Node.js", "Firebase"],
+      link: "www.comprojects.com"
     },
     {
-      id: 2,
-      title: 'Poultry Application',
-      description: 'An innovative poultry management application developed during internship. Features poultry tracking, budget management, and detailed analytics for poultry management.',
-      tags: ['React', 'Firebase', 'JavaScript', 'Tailwind CSS'],
-      image: '💰',
-      gradient: 'from-purple-500/10 to-pink-500/10',
-      borderColor: 'border-purple-500/30',
-      link: '#',
-      github: '#',
+      title: "Castman - Mobile Application",
+      role: "Frontend Developer",
+      description: "Mobile application built to enable each and every individual to manage their income and operations, and teach to invest in correct platform for future profits.",
+      tech: ["HTML", "CSS", "JavaScript", "React Native", "Node.js", "Firebase"]
     },
     {
-      id: 3,
-      title: 'Loan Based Application',
-      description: 'A loan management system built during internship. Handles loan applications, processing, approval workflow, and EMI calculations with comprehensive dashboard.',
-      tags: ['Node.js', 'React', 'SQL', 'Express.js'],
-      image: '🏦',
-      gradient: 'from-orange-500/10 to-red-500/10',
-      borderColor: 'border-orange-500/30',
-      link: '#',
-      github: '#',
-    },
-    {
-      id: 4,
-      title: 'TB Website',
-      description: 'College TB department information website with responsive design. Features department information, resources, and easy-to-navigate interface for students and staff.',
-      tags: ['React', 'Tailwind CSS', 'JavaScript'],
-      image: '🏥',
-      gradient: 'from-green-500/10 to-emerald-500/10',
-      borderColor: 'border-green-500/30',
-      link: '#',
-      github: '#',
-    },
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  };
+      title: "KEO-TBI Website",
+      role: "Full Stack Developer",
+      description: "A dynamic website built for college TBI to maintain all things in organized manner. Contains separate login for Admin session to ensure data manually.",
+      tech: ["HTML", "CSS", "JavaScript", "React.js", "Node.js", "Firebase"],
+      link: "www.kik.com"
+    }
+  ]
 
   return (
-    <section className="w-full min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black px-4 py-20 relative">
-      <div className="max-w-6xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold mb-16 text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"
-        >
-          Featured Projects
-        </motion.h2>
-
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
-        >
-          {projects.map((project) => (
-            <motion.div
-              key={project.id}
-              variants={itemVariants}
-              whileHover={{ y: -15 }}
-              className={`bg-gradient-to-br ${project.gradient} rounded-xl border ${project.borderColor} overflow-hidden hover:border-opacity-100 transition-all duration-300 backdrop-blur-sm hover:shadow-xl hover:shadow-cyan-500/20`}
+    <section id="projects" className="py-20 bg-gray-800/50">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16 animate-fade-up">
+          <h2 className="text-4xl font-bold mb-4">
+            My <span className="gradient-text">Projects</span>
+          </h2>
+          <p className="text-gray-400 text-xl">Featured works and contributions</p>
+        </div>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              className="group bg-gray-900 rounded-xl overflow-hidden hover-lift transform transition-all duration-500 hover:scale-105 animate-fade-up"
+              style={{ animationDelay: `${index * 0.2}s` }}
             >
-              {/* Project Header with Icon */}
-              <div className="h-32 bg-gradient-to-r from-gray-800 to-gray-900 flex items-center justify-center border-b border-gray-700">
-                <span className="text-6xl">{project.image}</span>
-              </div>
-
-              {/* Project Content */}
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-white mb-3">
+              <div className="p-8">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                    <span className="text-white font-bold">P{index + 1}</span>
+                  </div>
+                  <span className="px-4 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm font-semibold">
+                    {project.role}
+                  </span>
+                </div>
+                
+                <h3 className="text-2xl font-bold mb-4 group-hover:text-blue-400 transition-colors duration-300">
                   {project.title}
                 </h3>
-
-                <p className="text-gray-300 mb-6 leading-relaxed">
+                
+                <p className="text-gray-400 mb-6">
                   {project.description}
                 </p>
-
-                {/* Tags */}
+                
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map((tag, index) => (
-                    <motion.span
-                      key={index}
-                      whileHover={{ scale: 1.05 }}
-                      className="px-3 py-1 bg-cyan-500/20 text-cyan-400 rounded-full text-xs font-semibold border border-cyan-500/30 hover:bg-cyan-500/30 transition-all duration-300"
+                  {project.tech.map((tech, idx) => (
+                    <span
+                      key={idx}
+                      className="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm"
                     >
-                      {tag}
-                    </motion.span>
+                      {tech}
+                    </span>
                   ))}
                 </div>
-
-                {/* Links */}
-                <div className="flex gap-4">
-                  <motion.a
-                    href={project.link}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex-1 px-4 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 text-black font-bold flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300"
+                
+                {project.link && (
+                  <a
+                    href={`https://${project.link}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors duration-300"
                   >
-                    <ExternalLink size={18} />
-                    View
-                  </motion.a>
-                  <motion.a
-                    href={project.github}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex-1 px-4 py-2 rounded-lg border-2 border-cyan-500/50 text-cyan-400 font-bold flex items-center justify-center gap-2 hover:border-cyan-500 hover:bg-cyan-500/10 transition-all duration-300"
-                  >
-                    <Github size={18} />
-                    Code
-                  </motion.a>
-                </div>
+                    View Project
+                    <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </a>
+                )}
               </div>
-            </motion.div>
+              
+              <div className="h-1 bg-gradient-to-r from-blue-500 to-purple-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
-
-      {/* Background Animations */}
-      <motion.div
-        animate={{
-          rotate: 360,
-        }}
-        transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-        className="absolute top-32 right-10 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl -z-10"
-      />
-      <motion.div
-        animate={{
-          rotate: -360,
-        }}
-        transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
-        className="absolute bottom-32 left-10 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl -z-10"
-      />
     </section>
-  );
-};
+  )
+}
 
-export default Projects;
+export default Projects

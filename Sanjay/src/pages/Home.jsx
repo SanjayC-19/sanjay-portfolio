@@ -1,106 +1,58 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
-
-const Home = ({ setActiveSection }) => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8 },
-    },
-  };
-
+const Home = () => {
   return (
-    <section className="w-full min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black flex items-center justify-center px-4 pt-20 relative">
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="text-center z-10"
-      >
-        <motion.div
-          variants={itemVariants}
-          className="mb-8"
-        >
-          <div className="w-32 h-32 mx-auto mb-6 relative">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 p-1">
-              <div className="w-full h-full rounded-full bg-gray-900 flex items-center justify-center text-4xl">
-                👨‍💻
-              </div>
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-purple-900/20 to-blue-900/20"></div>
+      
+      <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '2s' }}></div>
+      
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="text-center">
+          <div className="inline-block mb-6 animate-fade-up">
+            <div className="text-sm text-blue-400 font-semibold tracking-wider uppercase">
+              Welcome to my portfolio
             </div>
           </div>
-        </motion.div>
-
-        <motion.h1
-          variants={itemVariants}
-          className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 bg-clip-text text-transparent"
-        >
-          Hey, I'm Sanjay!
-        </motion.h1>
-
-        <motion.p
-          variants={itemVariants}
-          className="text-xl md:text-2xl text-gray-300 mb-4"
-        >
-          Full Stack Developer & AI Enthusiast
-        </motion.p>
-
-        <motion.p
-          variants={itemVariants}
-          className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto"
-        >
-          Building beautiful, functional web applications with modern technologies.
-          Passionate about turning ideas into reality through code.
-        </motion.p>
-
-        <motion.button
-          variants={itemVariants}
-          onClick={() => setActiveSection('about')}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="px-8 py-3 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 text-black font-bold hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300"
-        >
-          Get to Know Me
-        </motion.button>
-
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="mt-16"
-        >
-          <ChevronDown size={32} className="text-cyan-400 mx-auto" />
-        </motion.div>
-      </motion.div>
-
-      {/* Background Animation Elements */}
-      <motion.div
-        animate={{
-          rotate: 360,
-        }}
-        transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-        className="absolute top-20 right-10 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl"
-      />
-      <motion.div
-        animate={{
-          rotate: -360,
-        }}
-        transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
-        className="absolute bottom-20 left-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl"
-      />
+          
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-slide-left">
+            Hi, I'm <span className="gradient-text">Sanjay C</span>
+          </h1>
+          
+          <div className="typing-animation text-2xl md:text-3xl text-gray-300 mb-8 mx-auto w-fit">
+            Aspiring Software Developer
+          </div>
+          
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-10 animate-fade-up">
+            I create impactful features using coding skills, design, and problem-solving.
+            Passionate about learning and growing in hands-on product settings.
+          </p>
+          
+          <div className="flex flex-wrap justify-center gap-6 animate-fade-up" style={{ animationDelay: '0.5s' }}>
+            <a
+              href="#projects"
+              className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full hover-lift transition-all duration-300 transform hover:scale-105"
+            >
+              View Projects
+            </a>
+            <a
+              href="#contact"
+              className="px-8 py-3 border-2 border-blue-500 text-blue-400 font-semibold rounded-full hover-lift transition-all duration-300 transform hover:scale-105 hover:bg-blue-500/10"
+            >
+              Contact Me
+            </a>
+          </div>
+        </div>
+        
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <a href="#about" className="text-gray-400 hover:text-white transition-colors">
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </a>
+        </div>
+      </div>
     </section>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

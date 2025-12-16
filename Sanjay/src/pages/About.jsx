@@ -1,206 +1,159 @@
-import React from 'react';
-import sanjayPhoto from '../assets/sanjay_s_photo-removebg-preview.png';
-import { motion } from 'framer-motion';
-import { Download, Award, Calendar } from 'lucide-react';
+import sanjayPhoto from '../assets/sanjay_photo.png';
 
 const About = () => {
-
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  };
-
   return (
-    <section className="w-full min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black px-4 py-20">
-      <div className="max-w-6xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"
-        >
-          About Me
-        </motion.h2>
-
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16"
-        >
-          {/* Image Section - Left */}
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-col items-center"
-          >
-            <div className="relative w-64 h-64 rounded-2xl overflow-hidden border-2 border-cyan-500/50 transition-all duration-300">
-              <img
-                src={sanjayPhoto}
-                alt="Sanjay"
-                className="w-full h-full object-cover"
-              />
+    <section id="about" className="py-20 bg-gray-900">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col lg:flex-row items-center gap-16">
+          {/* Profile Image */}
+          <div className="lg:w-2/5 flex justify-center animate-fade-in">
+            <div className="relative group">
+              <div className="w-72 h-72 rounded-full overflow-hidden border-4 border-gray-700 shadow-2xl group-hover:border-blue-500 transition-all duration-300">
+                <img 
+                  src={sanjayPhoto}
+                  alt="Sanjay C - Software Developer"
+                  className="w-full h-full object-cover transition-all duration-500"
+                />
+              </div>
+              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full font-semibold shadow-lg">
+                Software Developer
+              </div>
             </div>
-          </motion.div>
-
-          {/* Text Section - Right */}
-          <motion.div
-            variants={itemVariants}
-            className="space-y-6"
-          >
-            <div>
-              <h3 className="text-2xl font-bold text-cyan-400 mb-2">
-                C Sanjay
-              </h3>
-              <p className="text-gray-300 text-lg">
-                A passionate 3rd year BTech student in Artificial Intelligence & Machine Learning
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              <motion.div
-                whileHover={{ x: 10 }}
-                className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 p-4 rounded-lg border border-cyan-500/30 hover:border-cyan-500/60 transition-all duration-300"
-              >
-                <div className="flex items-start space-x-3">
-                  <Award className="text-cyan-400 flex-shrink-0 mt-1" size={20} />
-                  <div>
-                    <p className="font-bold text-white">Education</p>
-                    <p className="text-gray-300 text-sm mt-1">
-                      <span className="text-cyan-400">Kongu Engineering College</span> - B.Tech AI & ML (3rd Year)
-                    </p>
-                    <p className="text-gray-400 text-sm">CGPA: 8.3 (Till 4th Semester)</p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ x: 10 }}
-                className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 p-4 rounded-lg border border-cyan-500/30 hover:border-cyan-500/60 transition-all duration-300"
-              >
-                <div className="flex items-start space-x-3">
-                  <Calendar className="text-cyan-400 flex-shrink-0 mt-1" size={20} />
-                  <div>
-                    <p className="font-bold text-white">Schooling</p>
-                    <p className="text-gray-300 text-sm mt-1">
-                      <span className="text-cyan-400">12th Grade:</span> Vijay Millennium Senior Secondary School, Krishnagiri - 80%
-                    </p>
-                    <p className="text-gray-300 text-sm mt-1">
-                      <span className="text-cyan-400">10th Grade:</span> Steve Vijay Vidyalaya, Krishnagiri - 96.2%
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
-        </motion.div>
-
-        {/* Internship Section */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <motion.h3
-            variants={itemVariants}
-            className="text-3xl font-bold mb-8 text-cyan-400"
-          >
-            Experience
-          </motion.h3>
-
-          <motion.div
-            variants={itemVariants}
-            className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 p-8 rounded-xl border border-cyan-500/30 hover:border-cyan-500/60 transition-all duration-300 mb-6"
-          >
-            <h4 className="text-2xl font-bold text-white mb-2">
-              Full Stack Developer Intern
-            </h4>
-            <p className="text-cyan-400 mb-4">CubeAI Solution Pvt Ltd</p>
-            <p className="text-gray-300 mb-4">
-              3-Month Internship | Full Stack Development
-            </p>
-            <div className="space-y-2">
-              <p className="text-gray-400">
-                <span className="text-cyan-400 font-semibold">Projects Completed:</span>
-              </p>
-              <ul className="list-disc list-inside space-y-1 text-gray-400 ml-2">
-                <li>Poultry Project - Mobile Application</li>
-                <li>Loan Based Application - Financial Management Tool</li>
-              </ul>
-            </div>
-          </motion.div>
-        </motion.div>
-
-        {/* Projects Highlights */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <motion.h3
-            variants={itemVariants}
-            className="text-3xl font-bold mb-8 text-cyan-400"
-          >
-            Projects Highlights
-          </motion.h3>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <motion.div
-              variants={itemVariants}
-              whileHover={{ y: -10 }}
-              className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 p-6 rounded-xl border border-cyan-500/30 hover:border-cyan-500/60 transition-all duration-300"
-            >
-              <h4 className="text-xl font-bold text-white mb-3">
-                E-Commerce Application
-              </h4>
-              <p className="text-gray-400 mb-4">
-                A full-featured e-commerce platform built with modern technologies. Implemented product management, shopping cart, and payment integration.
-              </p>
-              <p className="text-cyan-400 text-sm font-semibold">
-                Role: Full Stack Developer
-              </p>
-            </motion.div>
-
-            <motion.div
-              variants={itemVariants}
-              whileHover={{ y: -10 }}
-              className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 p-6 rounded-xl border border-cyan-500/30 hover:border-cyan-500/60 transition-all duration-300"
-            >
-              <h4 className="text-xl font-bold text-white mb-3">
-                TB Website
-              </h4>
-              <p className="text-gray-400 mb-4">
-                College TB department website with information management system. Designed for easy navigation and responsive design.
-              </p>
-              <p className="text-cyan-400 text-sm font-semibold">
-                Role: Full Stack Developer
-              </p>
-            </motion.div>
           </div>
-        </motion.div>
+          
+          {/* Content */}
+          <div className="lg:w-3/5 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+            <div className="mb-8">
+              <h2 className="text-5xl font-bold mb-4">
+                About <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">Me</span>
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></div>
+            </div>
+            
+            <div className="space-y-8">
+              {/* Career Objective */}
+              <div className="bg-gray-800/60 backdrop-blur-sm p-8 rounded-2xl border border-gray-700 hover:border-blue-500/30 transition-all duration-300">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500/20 to-blue-600/20 flex items-center justify-center">
+                    <span className="text-2xl">🎯</span>
+                  </div>
+                  <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                    Career Objective
+                  </h3>
+                </div>
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  Aspiring Software Developer with a passion for creating impactful digital solutions. 
+                  Seeking to leverage strong foundation in full-stack development and problem-solving 
+                  skills to contribute to innovative products. Committed to continuous learning and 
+                  growth in a collaborative, hands-on environment where I can make meaningful contributions.
+                </p>
+              </div>
+              
+              {/* Education */}
+              <div className="bg-gray-800/60 backdrop-blur-sm p-8 rounded-2xl border border-gray-700 hover:border-purple-500/30 transition-all duration-300">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500/20 to-purple-600/20 flex items-center justify-center">
+                    <span className="text-2xl">🎓</span>
+                  </div>
+                  <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    Education
+                  </h3>
+                </div>
+                
+                <div className="space-y-8">
+                  {/* Current Education */}
+                  <div className="relative pl-10">
+                    <div className="absolute left-0 top-0 w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center animate-pulse">
+                      <div className="w-3 h-3 bg-white rounded-full"></div>
+                    </div>
+                    <div className="bg-gray-900/50 p-5 rounded-xl">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                        <h4 className="text-xl font-semibold text-white">B.E. in AI & Machine Learning</h4>
+                        <span className="text-blue-400 font-medium bg-blue-500/10 px-3 py-1 rounded-full text-sm mt-2 sm:mt-0">2022 - 2026</span>
+                      </div>
+                      <p className="text-gray-400 mb-2">KPR Engineering College</p>
+                      <div className="flex items-center gap-4">
+                        <span className="text-blue-300 font-medium">CGPA: 8.20</span>
+                        <span className="text-gray-500">|</span>
+                        <span className="text-gray-400 text-sm">Currently in 4th Semester</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Previous Education */}
+                  <div className="relative pl-10">
+                    <div className="absolute left-0 top-0 w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                      <div className="w-3 h-3 bg-white rounded-full"></div>
+                    </div>
+                    <div className="bg-gray-900/50 p-5 rounded-xl">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                        <h4 className="text-xl font-semibold text-white">Higher Secondary (12th)</h4>
+                        <span className="text-purple-400 font-medium bg-purple-500/10 px-3 py-1 rounded-full text-sm mt-2 sm:mt-0">2021 - 2022</span>
+                      </div>
+                      <p className="text-gray-400 mb-2">The TVS School</p>
+                      <div className="flex items-center gap-4">
+                        <span className="text-purple-300 font-medium">Percentage: 80%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Expertise */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+                Areas of Expertise
+              </span>
+            </h3>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Specializing in modern web technologies and application development
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { 
+                title: 'Full-Stack Development', 
+                icon: '💻', 
+                gradient: 'from-blue-600 to-cyan-600',
+                description: 'End-to-end web application development with modern frameworks and architectures'
+              },
+              { 
+                title: 'Mobile App Development', 
+                icon: '📱', 
+                gradient: 'from-purple-600 to-pink-600',
+                description: 'Cross-platform mobile applications using React Native and Flutter'
+              },
+              { 
+                title: 'Frontend Development', 
+                icon: '🎨', 
+                gradient: 'from-green-600 to-emerald-600',
+                description: 'Creating responsive, interactive user interfaces with modern JavaScript frameworks'
+              }
+            ].map((expertise, index) => (
+              <div
+                key={index}
+                className="group bg-gray-800/40 backdrop-blur-sm p-8 rounded-2xl border border-gray-700 hover:border-transparent transition-all duration-300 hover:scale-[1.02]"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${expertise.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <span className="text-3xl">{expertise.icon}</span>
+                </div>
+                <h4 className="text-2xl font-bold text-white mb-4">{expertise.title}</h4>
+                <p className="text-gray-400 leading-relaxed">{expertise.description}</p>
+                <div className={`mt-6 w-12 h-1 bg-gradient-to-r ${expertise.gradient} rounded-full group-hover:w-24 transition-all duration-300`}></div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default About;
+export default About

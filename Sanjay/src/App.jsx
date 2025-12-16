@@ -1,52 +1,51 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import './App.css';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import About from './pages/About';
-import Skills from './pages/Skills';
-import Projects from './pages/Projects';
-import Contact from './pages/Contact';
+import { useState, useEffect } from 'react'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import Home from './pages/Home'
+import About from './pages/About'
+import Skills from './pages/Skills'
+import Projects from './pages/Projects'
+import Contact from './pages/Contact'
+import Achievements from './pages/Achievements'
+import './App.css'
 
 function App() {
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState('home')
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setActiveSection(sectionId);
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['home', 'about', 'skills', 'projects', 'achievements', 'contact']
+      const current = sections.find(section => {
+        const element = document.getElementById(section)
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          return rect.top <= 100 && rect.bottom >= 100
+        }
+        return false
+      })
+      if (current) {
+        setActiveSection(current)
+      }
     }
-  };
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <div className="bg-black w-full min-h-screen overflow-x-hidden scroll-smooth flex flex-col">
-      <Navbar activeSection={activeSection} setActiveSection={scrollToSection} />
-      {/* Each section: min-h-screen, pt-16, snap-start for scroll snap */}
-      <section id="home" className="w-full min-h-screen pt-16">
-        <Home setActiveSection={scrollToSection} />
-      </section>
-
-      <section id="about" className="w-full min-h-screen pt-16">
+    <div className="bg-gray-900 text-white min-h-screen">
+      <Navbar activeSection={activeSection} />
+      <main>
+        <Home />
         <About />
-      </section>
-
-      <section id="skills" className="w-full min-h-screen pt-16">
         <Skills />
-      </section>
-
-      <section id="projects" className="w-full min-h-screen pt-16">
         <Projects />
-      </section>
-
-      <section id="contact" className="w-full min-h-screen pt-16">
+        <Achievements />
         <Contact />
-      </section>
-
+      </main>
       <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

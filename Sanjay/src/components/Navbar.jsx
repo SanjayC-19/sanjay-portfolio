@@ -1,100 +1,60 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { useEffect, useState } from 'react'
 
-const Navbar = ({ activeSection, setActiveSection }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const Navbar = ({ activeSection }) => {
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const navItems = [
-    { name: 'Home', id: 'home' },
-    { name: 'About', id: 'about' },
-    { name: 'Skills', id: 'skills' },
-    { name: 'Projects', id: 'projects' },
-    { name: 'Contact', id: 'contact' },
-  ];
-
-  // Removed scroll event logic to prevent scroll interference
-
-  const handleNavClick = (id) => {
-    setActiveSection(id);
-    setIsOpen(false);
-  };
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'achievements', label: 'Achievements' },
+    { id: 'contact', label: 'Contact' }
+  ]
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="fixed top-0 w-full bg-gradient-to-r from-gray-900 via-gray-800 to-black z-50 border-b border-cyan-500/30 backdrop-blur-md"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            onClick={() => handleNavClick('home')}
-            className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent cursor-pointer"
-          >
-            Sanjay
-          </motion.div>
-
-          {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-1">
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-gray-900/90 backdrop-blur-md py-4 shadow-xl' : 'bg-transparent py-6'}`}>
+      <div className="container mx-auto px-6">
+        <div className="flex justify-between items-center">
+          <div className="flex items-center space-x-2">
+            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg animate-pulse-slow"></div>
+            <span className="text-2xl font-bold gradient-text">SANJAY C</span>
+          </div>
+          
+          <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <motion.button
+              <a
                 key={item.id}
-                onClick={() => handleNavClick(item.id)}
-                className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
-                  activeSection === item.id
-                    ? 'bg-cyan-500 text-black'
-                    : 'text-gray-300 hover:text-cyan-400'
+                href={`#${item.id}`}
+                className={`relative text-lg font-medium transition-all duration-300 hover:text-blue-400 ${
+                  activeSection === item.id ? 'text-blue-400' : 'text-gray-300'
                 }`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
               >
-                {item.name}
-              </motion.button>
+                {item.label}
+                {activeSection === item.id && (
+                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 animate-glow"></span>
+                )}
+              </a>
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-cyan-400 hover:text-cyan-300"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+          <button className="md:hidden text-gray-300 hover:text-white">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
         </div>
-
-        {/* Mobile Menu */}
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-gray-900 border-t border-cyan-500/30 py-4"
-          >
-            {navItems.map((item) => (
-              <motion.button
-                key={item.id}
-                onClick={() => handleNavClick(item.id)}
-                className={`block w-full text-left px-4 py-2 rounded-lg font-medium mb-2 transition-all duration-300 ${
-                  activeSection === item.id
-                    ? 'bg-cyan-500 text-black'
-                    : 'text-gray-300 hover:text-cyan-400 hover:bg-gray-800'
-                }`}
-                whileHover={{ x: 10 }}
-              >
-                {item.name}
-              </motion.button>
-            ))}
-          </motion.div>
-        )}
       </div>
-    </motion.nav>
-  );
-};
+    </nav>
+  )
+}
 
-export default Navbar;
+export default Navbar
