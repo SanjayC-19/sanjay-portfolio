@@ -3,14 +3,14 @@ const Contact = () => {
     {
       icon: "📞",
       title: "Phone",
-      value: "+91 807264085",
-      link: "tel:+91807264085"
+      value: "+91 8072840185",
+      link: "tel:+918072840185"
     },
     {
       icon: "📧",
       title: "Email",
-      value: "sanjay.cai800@gmail.com",
-      link: "mailto:sanjay.cai800@gmail.com"
+      value: "sanjaycs1902@gmail.com",
+      link: "mailto:sanjaycs1902@gmail.com"
     },
     {
       icon: "🔗",
@@ -33,7 +33,7 @@ const Contact = () => {
     {
       icon: "🎓",
       title: "College",
-      value: "KPR Engineering College",
+      value: "Kongu Engineering College",
       link: "#"
     }
   ]
@@ -90,7 +90,7 @@ const Contact = () => {
                     <input
                       type="text"
                       className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
-                      placeholder="John Doe"
+                      placeholder="Sanjay C"
                     />
                   </div>
                   <div>
@@ -98,7 +98,7 @@ const Contact = () => {
                     <input
                       type="email"
                       className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300"
-                      placeholder="john@example.com"
+                      placeholder="sanjay@example.com"
                     />
                   </div>
                 </div>
