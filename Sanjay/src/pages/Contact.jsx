@@ -1,139 +1,219 @@
+import { useState } from 'react';
+import { Mail, Phone, MapPin, Send, Linkedin, Github, FileText } from 'lucide-react';
+
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission
+    console.log('Form submitted:', formData);
+    alert('Thank you for your message! I will get back to you soon.');
+    setFormData({ name: '', email: '', subject: '', message: '' });
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
   const contactInfo = [
     {
-      icon: "📞",
-      title: "Phone",
-      value: "+91 8072840185",
-      link: "tel:+918072840185"
+      icon: <Phone size={24} />,
+      title: 'Phone',
+      value: '+91 8072840185',
+      link: 'tel:+918072840185'
     },
     {
-      icon: "📧",
-      title: "Email",
-      value: "sanjaycs1902@gmail.com",
-      link: "mailto:sanjaycs1902@gmail.com"
+      icon: <Mail size={24} />,
+      title: 'Email',
+      value: 'sanjaycs1902@gmail.com',
+      link: 'mailto:sanjaycs1902@gmail.com'
     },
     {
-      icon: "🔗",
-      title: "LinkedIn",
-      value: "linkedin.com/sanjayc",
-      link: "https://linkedin.com/in/sanjayc"
-    },
-    {
-      icon: "💻",
-      title: "GitHub",
-      value: "github.com/sanjayc-tb",
-      link: "https://github.com/sanjayc-tb"
-    },
-    {
-      icon: "⚡",
-      title: "LeetCode",
-      value: "leetcode.com/sanjayc",
-      link: "https://leetcode.com/sanjayc"
-    },
-    {
-      icon: "🎓",
-      title: "College",
-      value: "Kongu Engineering College",
-      link: "#"
+      icon: <MapPin size={24} />,
+      title: 'Location',
+      value: 'Krishnagiri, Tamil Nadu',
+      link: '#'
     }
-  ]
+  ];
+
+  const socialLinks = [
+    {
+      icon: <Linkedin size={24} />,
+      name: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/sanjaye',
+      handle: 'linkedin.com/sanjaye'
+    },
+    {
+      icon: <Github size={24} />,
+      name: 'GitHub',
+      url: 'https://github.com/sanjaye-19',
+      handle: 'github.com/sanjaye-19'
+    },
+    {
+      icon: <FileText size={24} />,
+      name: 'LeetCode',
+      url: 'https://leetcode.com/u/sanjaye',
+      handle: 'leetcode.com/u/sanjaye'
+    }
+  ];
 
   return (
-    <section id="contact" className="py-20 bg-gray-800/50">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16 animate-fade-up">
-          <h2 className="text-4xl font-bold mb-4">
-            Get In <span className="gradient-text">Touch</span>
-          </h2>
-          <p className="text-gray-400 text-xl">Let's connect and build something amazing</p>
+    <div className="container mx-auto px-4 py-12">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">Get In Touch</h1>
+          <p className="text-xl text-gray-300">Let's discuss opportunities or collaborate on amazing projects</p>
         </div>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="animate-slide-left">
-            <div className="bg-gray-900 p-8 rounded-xl">
-              <h3 className="text-2xl font-bold mb-8 text-blue-400">Contact Information</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {contactInfo.map((contact, index) => (
+          {/* Contact Form */}
+          <div className="glow-border rounded-2xl p-8">
+            <h2 className="text-2xl font-bold mb-6">Send me a message</h2>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-gray-300 mb-2">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 bg-green-900/20 border border-green-900/30 rounded-lg text-gray-200 focus:outline-none focus:border-primary-green transition-colors"
+                  placeholder="Your name"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-gray-300 mb-2">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 bg-green-900/20 border border-green-900/30 rounded-lg text-gray-200 focus:outline-none focus:border-primary-green transition-colors"
+                  placeholder="your.email@example.com"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="subject" className="block text-gray-300 mb-2">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 bg-green-900/20 border border-green-900/30 rounded-lg text-gray-200 focus:outline-none focus:border-primary-green transition-colors"
+                  placeholder="What is this regarding?"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-gray-300 mb-2">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows="5"
+                  className="w-full px-4 py-3 bg-green-900/20 border border-green-900/30 rounded-lg text-gray-200 focus:outline-none focus:border-primary-green transition-colors resize-none"
+                  placeholder="Your message here..."
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full px-6 py-4 bg-primary-green text-dark-bg font-bold rounded-lg hover:bg-light-green transition-all duration-300 hover-lift flex items-center justify-center space-x-2"
+              >
+                <span>Send Message</span>
+                <Send size={20} />
+              </button>
+            </form>
+          </div>
+
+          {/* Contact Information */}
+          <div className="space-y-8">
+            {/* Contact Cards */}
+            <div className="space-y-6">
+              {contactInfo.map((info, index) => (
+                <a
+                  key={index}
+                  href={info.link}
+                  className="glow-border rounded-xl p-6 block hover-lift"
+                >
+                  <div className="flex items-center">
+                    <div className="w-14 h-14 bg-primary-green/20 rounded-lg flex items-center justify-center text-primary-green mr-4">
+                      {info.icon}
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg">{info.title}</h3>
+                      <p className="text-gray-300">{info.value}</p>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+
+            {/* Social Links */}
+            <div className="glow-border rounded-2xl p-8">
+              <h3 className="text-2xl font-bold mb-6">Connect with me</h3>
+              <div className="space-y-4">
+                {socialLinks.map((social, index) => (
                   <a
                     key={index}
-                    href={contact.link}
+                    href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group bg-gray-800/50 p-6 rounded-xl hover-lift transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-900/20 hover:to-purple-900/20"
+                    className="flex items-center justify-between p-4 rounded-lg bg-green-900/20 hover:bg-green-900/30 transition-colors"
                   >
-                    <div className="flex items-center space-x-4">
-                      <div className="text-3xl group-hover:scale-110 transition-transform duration-300">
-                        {contact.icon}
+                    <div className="flex items-center">
+                      <div className="w-12 h-12 bg-primary-green/20 rounded-lg flex items-center justify-center text-primary-green mr-4">
+                        {social.icon}
                       </div>
                       <div>
-                        <h4 className="font-semibold text-gray-300 group-hover:text-white transition-colors">
-                          {contact.title}
-                        </h4>
-                        <p className="text-gray-400 group-hover:text-blue-300 transition-colors">
-                          {contact.value}
-                        </p>
+                        <h4 className="font-bold">{social.name}</h4>
+                        <p className="text-gray-300 text-sm">{social.handle}</p>
                       </div>
                     </div>
+                    <span className="text-primary-green">→</span>
                   </a>
                 ))}
               </div>
             </div>
-          </div>
-          
-          <div className="animate-slide-right">
-            <div className="bg-gray-900 p-8 rounded-xl">
-              <h3 className="text-2xl font-bold mb-8 text-purple-400">Send Message</h3>
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-gray-400 mb-2">Your Name</label>
-                    <input
-                      type="text"
-                      className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
-                      placeholder="Sanjay C"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-400 mb-2">Your Email</label>
-                    <input
-                      type="email"
-                      className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300"
-                      placeholder="sanjay@example.com"
-                    />
-                  </div>
-                </div>
-                
-                <div>
-                  <label className="block text-gray-400 mb-2">Subject</label>
-                  <input
-                    type="text"
-                    className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
-                    placeholder="Project Inquiry"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-gray-400 mb-2">Message</label>
-                  <textarea
-                    rows="4"
-                    className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 resize-none"
-                    placeholder="Your message here..."
-                  ></textarea>
-                </div>
-                
-                <button
-                  type="submit"
-                  className="w-full py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover-lift transform hover:scale-105 transition-all duration-300"
-                >
-                  Send Message
-                </button>
-              </form>
+
+            {/* Resume Download */}
+            <div className="glow-border rounded-2xl p-8 text-center">
+              <h3 className="text-2xl font-bold mb-4">Download Resume</h3>
+              <p className="text-gray-300 mb-6">Get a detailed overview of my skills and experience</p>
+              <a
+                href="/resume.pdf"
+                className="inline-flex items-center space-x-2 px-8 py-3 bg-primary-green text-dark-bg font-bold rounded-lg hover:bg-light-green transition-all duration-300 hover-lift"
+                download
+              >
+                <FileText size={20} />
+                <span>Download PDF</span>
+              </a>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  )
-}
+    </div>
+  );
+};
 
-export default Contact
+export default Contact;

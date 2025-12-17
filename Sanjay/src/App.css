@@ -1,135 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-green: #10B981;
+  --dark-green: #059669;
+  --light-green: #34D399;
+  --dark-bg: #111827;
+  --darker-bg: #0F172A;
+  --light-text: #F3F4F6;
+  --gray-text: #9CA3AF;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--dark-bg);
+  color: var(--light-text);
+  overflow-x: hidden;
+}
+
+/* Custom Animations */
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
-@keyframes glow {
-  0%, 100% {
-    text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
-  }
-  50% {
-    text-shadow: 0 0 30px rgba(59, 130, 246, 0.8), 0 0 40px rgba(139, 92, 246, 0.6);
-  }
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px var(--primary-green); }
+  50% { box-shadow: 0 0 20px var(--primary-green), 0 0 40px var(--primary-green); }
 }
 
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+@keyframes slide-in-left {
+  from { transform: translateX(-50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
 }
 
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+@keyframes slide-in-right {
+  from { transform: translateX(50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.float-animation {
+  animation: float 3s ease-in-out infinite;
 }
 
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
+.pulse-glow {
+  animation: pulse-glow 2s infinite;
 }
 
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.slide-left {
+  animation: slide-in-left 0.8s ease-out;
 }
 
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+.slide-right {
+  animation: slide-in-right 0.8s ease-out;
 }
 
-@keyframes blink {
-  0%, 100% { opacity: 1 }
-  50% { opacity: 0 }
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+::-webkit-scrollbar-track {
+  background: var(--darker-bg);
 }
 
-.animate-glow {
-  animation: glow 3s ease-in-out infinite;
+::-webkit-scrollbar-thumb {
+  background: var(--primary-green);
+  border-radius: 5px;
 }
 
-.animate-slide-left {
-  animation: slideInLeft 1s ease-out;
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-green);
 }
 
-.animate-slide-right {
-  animation: slideInRight 1s ease-out;
-}
-
-.animate-fade-up {
-  animation: fadeInUp 1s ease-out;
-}
-
-.animate-pulse-slow {
-  animation: pulse 2s ease-in-out infinite;
-}
-
-.animate-gradient {
-  animation: gradientShift 3s ease infinite;
-  background-size: 200% 200%;
-}
-
-.typing-animation {
-  overflow: hidden;
-  border-right: 2px solid #3b82f6;
-  white-space: nowrap;
-  animation: typing 3.5s steps(40, end), blink .75s step-end infinite;
-}
-
+/* Gradient Text */
 .gradient-text {
-  background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899);
+  background: linear-gradient(45deg, var(--primary-green), var(--light-green));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  background-size: 200% 200%;
-  animation: gradientShift 3s ease infinite;
 }
 
+/* Glowing Border */
+.glow-border {
+  position: relative;
+  border: 2px solid transparent;
+  background: linear-gradient(var(--darker-bg), var(--darker-bg)) padding-box,
+              linear-gradient(45deg, var(--primary-green), transparent) border-box;
+}
+
+/* Hover Effects */
 .hover-lift {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hover-lift:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.2);
 }
