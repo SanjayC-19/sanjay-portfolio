@@ -6,6 +6,9 @@ import Projects from './Projects';
 import Skills from './Skills';
 import { ArrowRight, Code2, Smartphone, Globe, ChevronUp, Menu, X, Sparkles, Cpu, Zap, TrendingUp, User, Briefcase, Mail } from 'lucide-react';
 
+// Import your image - make sure to adjust the path based on your project structure
+import profileImage from '../assets/sanjay_photo.png';
+
 const Home = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -179,29 +182,60 @@ const Home = () => {
       <main className="relative z-10 pt-32 pb-20">
         <div className="container mx-auto px-6">
           <div className="max-w-7xl mx-auto">
-            {/* Header with Tagline */}
-            <div className="mb-12">
-              <div className="inline-flex items-center space-x-2 mb-8 px-4 py-2 bg-emerald-900/20 rounded-full border border-emerald-800/30">
-                <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-                <span className="text-emerald-300 text-sm font-medium">Available for opportunities</span>
-              </div>
-              
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                Hi, I'm{' '}
-                <span className="relative">
-                  <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-cyan-400 bg-clip-text text-transparent animate-gradient">
-                    Sanjay
+            {/* Header Section with Image */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
+              {/* Left Column - Text Content */}
+              <div className="lg:col-span-2">
+                <div className="inline-flex items-center space-x-2 mb-8 px-4 py-2 bg-emerald-900/20 rounded-full border border-emerald-800/30">
+                  <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
+                  <span className="text-emerald-300 text-sm font-medium">Available for opportunities</span>
+                </div>
+                
+                <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                  Hi, I'm{' '}
+                  <span className="relative">
+                    <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-cyan-400 bg-clip-text text-transparent animate-gradient">
+                      Sanjay
+                    </span>
+                    <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-green-400 to-emerald-600 rounded-full" />
                   </span>
-                  <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-green-400 to-emerald-600 rounded-full" />
-                </span>
-              </h1>
-              
-              <h2 className="text-3xl md:text-4xl text-gray-300 mb-12">
-                Aspiring{' '}
-                <span className="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent font-bold">
-                  Software Developer
-                </span>
-              </h2>
+                </h1>
+                
+                <h2 className="text-3xl md:text-4xl text-gray-300 mb-8">
+                  Aspiring{' '}
+                  <span className="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent font-bold">
+                    Software Developer
+                  </span>
+                </h2>
+                
+                <p className="text-xl text-gray-400 max-w-2xl">
+                  Building digital solutions with modern technologies and creative problem-solving approaches.
+                </p>
+              </div>
+
+              {/* Right Column - Profile Image in Square Frame with Caption */}
+              <div className="flex flex-col items-center justify-start lg:justify-end">
+                <div className="relative group">
+                  {/* Outer glow effect */}
+                  <div className="absolute -inset-4 bg-gradient-to-r from-green-400/10 to-emerald-400/10 rounded-xl blur-lg opacity-20 group-hover:opacity-30 transition-opacity duration-500" />
+                  {/* Image container with border gradient */}
+                  <div className="relative w-72 h-72 md:w-80 md:h-80 rounded-xl overflow-hidden border-4 border-white/40 bg-gradient-to-br from-green-400/30 via-emerald-400/30 to-cyan-400/30 p-1">
+                    {/* Inner container to create border effect */}
+                    <div className="w-full h-full rounded-xl overflow-hidden bg-black">
+                      {/* Your profile image */}
+                      <img 
+                        src={profileImage} 
+                        alt="Sanjay - Software Developer"
+                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                      />
+                    </div>
+                  </div>
+                </div>
+                {/* Caption below image */}
+                <div className="mt-4 text-center">
+                  <span className="block text-lg font-semibold text-emerald-400">Software Developer</span>
+                </div>
+              </div>
             </div>
 
             {/* Main Content Grid */}
