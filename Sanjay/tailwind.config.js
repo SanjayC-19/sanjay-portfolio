@@ -56,3 +56,30 @@ export default {
   },
   plugins: [],
 }
+// tailwind.config.js
+module.exports = {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        'dark-bg': '#0a0a0a',
+        'darker-bg': '#050505',
+        'primary-green': '#10b981',
+        'light-green': '#34d399',
+      },
+      animation: {
+        'gradient': 'gradient 3s ease infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'spin-slow': 'spin 20s linear infinite',
+        'spin-reverse': 'spin-reverse 25s linear infinite',
+        'width-pulse': 'width-pulse 2s ease-in-out infinite',
+      },
+      backdropBlur: {
+        xs: '2px',
+      },
+    },
+  },
+  plugins: [],
+}
