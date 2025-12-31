@@ -5,6 +5,7 @@ import Contact from './Contact';
 import Projects from './Projects';
 import Skills from './Skills';
 import { ArrowRight, Code2, Smartphone, Globe, ChevronUp, Menu, X, Sparkles, Cpu, Zap, TrendingUp, User, Briefcase, Mail } from 'lucide-react';
+import ExperienceTimeline from '../components/ExperienceTimeline';
 
 // Import your image - make sure to adjust the path based on your project structure
 import profileImage from '../assets/sanjay_photo.png';
@@ -128,14 +129,7 @@ const Home = () => {
                   {item}
                 </button>
               ))}
-              <a
-                href="/sanjay_resume (2).pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ml-2 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-black font-semibold rounded-xl hover:from-green-400 hover:to-emerald-500 transition-all duration-300 text-sm"
-              >
-                Resume
-              </a>
+              {/* Resume link removed */}
             </div>
 
             {/* Mobile Menu Button */}
@@ -164,14 +158,7 @@ const Home = () => {
                     {item}
                   </button>
                 ))}
-                <a
-                  href="/sanjay_resume (2).pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="py-3 px-4 bg-gradient-to-r from-green-500 to-emerald-600 text-black font-semibold rounded-lg text-center mt-2"
-                >
-                  Download Resume
-                </a>
+                {/* Download Resume link removed */}
               </div>
             </div>
           )}
@@ -411,15 +398,7 @@ const Home = () => {
                       <span className="text-lg">Start a Conversation</span>
                       <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
                     </button>
-                    
-                    <a
-                      href="/sanjay_resume (2).pdf"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block w-full py-4 text-center bg-transparent border-2 border-emerald-600 text-emerald-300 font-semibold rounded-xl hover:bg-emerald-900/20 transition-all duration-300 hover:border-emerald-500"
-                    >
-                      Download Resume
-                    </a>
+                    {/* Download Resume link removed */}
                   </div>
                 </div>
               </div>
@@ -446,6 +425,7 @@ const Home = () => {
       <section id="skills" className="pt-24"><Skills /></section>
       <section id="projects" className="pt-24"><Projects /></section>
       <section id="achievements" className="pt-24"><Achievements /></section>
+      <section id="experience" className="pt-24"><ExperienceTimeline /></section>
       <section id="contact" className="pt-24"><Contact /></section>
 
       {/* Back to Top Button */}

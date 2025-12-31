@@ -197,18 +197,7 @@ const Contact = () => {
             </div>
 
             {/* Resume Download */}
-            <div className="glow-border rounded-2xl p-8 text-center">
-              <h3 className="text-2xl font-bold mb-4">Download Resume</h3>
-              <p className="text-gray-300 mb-6">Get a detailed overview of my skills and experience</p>
-              <a
-                href="/resume.pdf"
-                className="inline-flex items-center space-x-2 px-8 py-3 bg-primary-green text-dark-bg font-bold rounded-lg hover:bg-light-green transition-all duration-300 hover-lift"
-                download
-              >
-                <FileText size={20} />
-                <span>Download PDF</span>
-              </a>
-            </div>
+            {/* Resume Download section removed */}
           </div>
         </div>
       </div>

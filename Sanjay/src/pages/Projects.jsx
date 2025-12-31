@@ -1,3 +1,4 @@
+import React from 'react';
 import { ExternalLink, Github, Smartphone, Globe, Store } from 'lucide-react';
 
 const Projects = () => {
@@ -42,8 +43,34 @@ const Projects = () => {
         'Organized information architecture',
         'Secure authentication'
       ]
+    },
+    // Added projects below
+    {
+      title: 'CBELoan – Loan Website',
+      role: 'Full Stack Developer (Intern)',
+      description: 'A real-world web application for loan management, built during my internship at CubeAI Solution Private Limited. The platform allows users to apply for loans, track status, and manage repayments.',
+      tech: ['React.js', 'Node.js', 'Express.js', 'Firebase'],
+      features: [
+        'Loan application and management',
+        'Status tracking for users',
+        'Repayment management',
+        'Internship project at CubeAI Solution Private Limited'
+      ]
+    },
+    {
+      title: 'Poultry Project – Mobile Application',
+      role: 'Full Stack Developer (Intern)',
+      description: 'Developed during my internship at CubeAI Solution Private Limited, this mobile app helps poultry farm owners manage their operations, track inventory, and monitor livestock health efficiently.',
+      tech: ['React Native', 'Node.js', 'Express.js', 'Firebase'],
+      features: [
+        'Farm operations management',
+        'Inventory tracking',
+        'Livestock health monitoring',
+        'Internship project at CubeAI Solution Private Limited'
+      ]
     }
   ];
+
 
   return (
     <div className="container mx-auto px-4 py-12">

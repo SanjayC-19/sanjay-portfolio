@@ -93,15 +93,7 @@ const Footer = () => {
               Creating impactful features through code, design thinking, and problem-solving.
               Continuously learning and growing in hands-on product environments.
             </p>
-            <a
-              href="/sanjay_resume (2).pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 px-6 py-3 bg-primary-green/20 text-primary-green rounded-lg hover:bg-primary-green hover:text-dark-bg transition-all duration-300"
-            >
-              <FileText size={20} />
-              <span>View Resume</span>
-            </a>
+            {/* Resume link removed */}
           </div>
 
           {/* Contact Info */}

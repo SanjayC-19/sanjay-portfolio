@@ -37,12 +37,7 @@ const Navbar = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-green group-hover:w-full transition-all duration-300"></span>
               </Link>
             ))}
-            <a
-              href="/resume.pdf"
-              className="px-6 py-2 bg-primary-green text-dark-bg font-semibold rounded-lg hover:bg-light-green transition-colors duration-300 hover-lift"
-            >
-              Resume
-            </a>
+            {/* Resume link removed */}
           </div>
 
           {/* Mobile Menu Button */}
@@ -68,13 +63,7 @@ const Navbar = () => {
                   {item.name}
                 </Link>
               ))}
-              <a
-                href="/resume.pdf"
-                className="px-6 py-3 bg-primary-green text-dark-bg font-semibold rounded-lg text-center hover:bg-light-green transition-colors duration-300"
-                onClick={() => setIsOpen(false)}
-              >
-                Download Resume
-              </a>
+              {/* Download Resume link removed */}
             </div>
           </div>
         )}
