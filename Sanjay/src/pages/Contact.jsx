@@ -49,20 +49,20 @@ const Contact = () => {
     {
       icon: <Linkedin size={24} />,
       name: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/sanjaye',
-      handle: 'linkedin.com/sanjaye'
+      url: 'https://www.linkedin.com/in/1sanjay-c',
+      handle: 'linkedin.com/sanjayc'
     },
     {
       icon: <Github size={24} />,
       name: 'GitHub',
-      url: 'https://github.com/sanjaye-19',
+      url: 'https://github.com/SanjayC-19',
       handle: 'github.com/sanjaye-19'
     },
     {
       icon: <FileText size={24} />,
       name: 'LeetCode',
-      url: 'https://leetcode.com/u/sanjaye',
-      handle: 'leetcode.com/u/sanjaye'
+      url: 'https://leetcode.com/u/Sanjay_C_/',
+      handle: 'leetcode.com/u/sanjayc'
     }
   ];
 
