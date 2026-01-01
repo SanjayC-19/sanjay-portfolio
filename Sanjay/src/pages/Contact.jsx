@@ -56,7 +56,7 @@ const Contact = () => {
       icon: <Github size={24} />,
       name: 'GitHub',
       url: 'https://github.com/SanjayC-19',
-      handle: 'github.com/sanjaye-19'
+      handle: 'github.com/sanjayc-19'
     },
     {
       icon: <FileText size={24} />,
